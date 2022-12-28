@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: monospace;
-  background: url('/static/back.jpg') #000 no-repeat;
+  background: #000 no-repeat;
   background-size: 100%;
 }
 
