@@ -1,8 +1,9 @@
 body {
-  width: 100%;
-  height: 100%;
-  position: relative;
-
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+  background: url('/static/back.jpg') #000 no-repeat;
+  background-size: 100%;
 }
 
 .container {
@@ -68,25 +69,10 @@ body {
 
 /* Skills Animation */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-  list-style: none;
-}
-
-html,
-body {
-  width: 100%;
-  height: 100vh;
-  overflow-x: hidden;
-}
-
 :root {
   --color-black: #232323;
-  --color-green: #245723;
-  --coler-yellowgreen: #45ff26;
+  --color-green: #FDDA0D;
+  --coler-yellowgreen: #FDDA0D;
   --color-orange: #ff7f00;
   --color-white: #ffffff;
   --color-gray: #645454;
@@ -222,8 +208,8 @@ div.cursors div span.visible {
 }
 .line-1 > span:last-child {
   color: var(--color-white);
-  text-shadow: 2px 0 0 #245723, 0 2px 0 #245723, -2px 0 0 #245723,
-    0 -2px 0 #245723;
+  text-shadow: 2px 0 0 #FDDA0D, 0 2px 0 #FDDA0D, -2px 0 0 #FDDA0D,
+    0 -2px 0 #FDDA0D;
   line-height: 140px;
   font-size: 170px;
 }
@@ -363,7 +349,7 @@ div.cursors div span.visible {
 .about-scroll-white > .track,
 .contact-scroll-white > .track {
   margin-top: 70px;
-  border-top: 2px solid #245723;
+  border-top: 2px solid #FDDA0D;
   background-color: var(--color-white);
   color: var(--color-green);
 }
@@ -505,7 +491,7 @@ h1 {
 .circle-3,
 .circle-4 {
   background-color: var(--color-white);
-  border: 3px solid #245723;
+  border: 3px solid #FDDA0D;
 }
 
 .aboutme-line {
@@ -535,7 +521,7 @@ h1 {
 }
 
 .skill-circle-2 {
-  border: 2px solid #245723;
+  border: 2px solid #FDDA0D;
   background-color: white;
 }
 
@@ -659,3 +645,78 @@ h1 {
   font-size: 18px;
   color: var(--color-gray);
 }
+
+/* Skills End */
+
+/* Name Line */
+
+#slogan {
+  text-align: center;
+  font-size: 36px;
+  margin-top: 10%;
+  color: #fff;
+}
+#slogan span { color: #FDDA0D }
+#slogan span.selected {
+  background: #09f;
+  color: #fff;
+}
+
+/* Name Line End */
+
+/* Lets Connect */
+
+.container {
+  display: flex;
+/*   border:1px solid red; */
+  height: 100%;
+  align-items: center;
+}
+
+svg {
+    display: block;
+    font: 10.5em 'Roboto';
+    width: 960px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.text-copy {
+    fill: none;
+    stroke: white;
+    stroke-dasharray: 6% 29%;
+    stroke-width: 5px;
+    stroke-dashoffset: 0%;
+    animation: stroke-offset 5.5s infinite linear;
+}
+
+.text-copy:nth-child(1){
+	stroke: #4D163D;
+	animation-delay: -1;
+}
+
+.text-copy:nth-child(2){
+	stroke: #840037;
+	animation-delay: -2s;
+}
+
+.text-copy:nth-child(3){
+	stroke: #BD0034;
+	animation-delay: -3s;
+}
+
+.text-copy:nth-child(4){
+	stroke: #BD0034;
+	animation-delay: -4s;
+}
+
+.text-copy:nth-child(5){
+	stroke: #FDB731;
+	animation-delay: -5s;
+}
+
+@keyframes stroke-offset{
+	100% {stroke-dashoffset: -35%;}
+}
+
+/* Lets connect end */
