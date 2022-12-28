@@ -94,9 +94,9 @@ canvas {
 .custom-btn {
   width: 130px;
   height: 40px;
-  color: #fff;
-  border-radius: 5px;
-  padding: 10px 25px;
+  /* color: #fff; */
+  /* border-radius: 5px; */
+  /* padding: 10px 25px; */
   font-family: 'Lato', sans-serif;
   font-weight: 500;
   background: transparent;
@@ -104,18 +104,18 @@ canvas {
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
-   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   /* box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
    7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
+   4px 4px 5px 0px rgba(0,0,0,.1); */
   outline: none;
   position: absolute;
   bottom: 5%;
   right: 0px;
   transform: translateX(-50%);
-  border: 1px solid white;
-  border-radius: 5px;
+  /* border: 1px solid white; */
+  /* border-radius: 5px; */
   font-size: 0.9rem;
-  padding: 0.5rem 0.7em;
+  /* padding: 0.5rem 0.7em; */
   background: transparent;
   color: #F9B31C;
   -webkit-font-smoothing: antialiased;
@@ -135,8 +135,8 @@ canvas {
   line-height: 42px;
   padding: 0;
   border: none;
-  background: rgb(255,27,0);
-background: linear-gradient(0deg, rgba(255,27,0,1) 0%, rgba(251,75,2,1) 100%);
+  background: rgb(0,0,0);
+/* background: linear-gradient(0deg, rgba(255,27,0,1) 0%, rgba(251,75,2,1) 100%); */
 }
 .btn-5:hover {
   color: #f0094a;
