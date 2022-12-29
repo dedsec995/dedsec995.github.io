@@ -2,6 +2,10 @@
  * Noel Delgado | @pixelia_me
  */
 
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  document.querySelector('body').style.display = 'none';
+}
+
 var items = []
   , point = document.querySelector('svg').createSVGPoint();
 

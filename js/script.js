@@ -1,13 +1,7 @@
-/* Please ❤ this if you like it! */
-
 
 (function($) { "use strict";
 		
 	//Page cursors
-
-	if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-		getElementById('body').style.display = 'none';
-	}
 
     document.getElementsByTagName("body")[0].addEventListener("mousemove", function(n) {
         t.style.left = n.clientX + "px", 
