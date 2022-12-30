@@ -237,6 +237,7 @@ body.nature-on .hero-section {
 	display: block;
 	overflow: hidden;
 	height: 100vh;
+	background-image: url('https://i.ibb.co/VMc1xzP/back6.jpg');
 	/* background-color: rgba(31,32,41,1); */
 	background-color: #0c0c0c;
 	transform: translateX(-100%);
@@ -339,6 +340,7 @@ body.about-on .about-section {
 	display: block;
 	overflow: hidden;
 	height: 100vh;
+	background-image: url('https://i.ibb.co/VMc1xzP/back6.jpg');
 	/* background-color: rgba(31,32,41,1); */
 	background-color: #0c0c0c;
 	transform: translateX(100%);
