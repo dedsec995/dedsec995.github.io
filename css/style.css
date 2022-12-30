@@ -1,20 +1,15 @@
-/* Please ❤ this if you like it! */
-
-
-/* ======================================== * 
-		        BEST VIEWED FULLSCREEN
-   https://codepen.io/ig_design/full/JxbVRq
- * ======================================== */
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script:400,700');
 
-
+/* Disable mobile Phones */
 @media only screen and (max-width: 980px) {  
 	html, body {
 	  display: none;
 	 }
 	}
+
+/* Dont Allow mobile Phones */
 
 body{
 	font-family: 'Poppins', sans-serif;
@@ -22,7 +17,7 @@ body{
 	font-size: 15px;
 	line-height: 1.6;
 	color: #fff;
-	background-color: #1e1e1e;
+	background-color: #000515;
 	overflow: hidden;
 	height: 100vh;
 	-webkit-transition: all 300ms linear;
@@ -102,9 +97,9 @@ a:hover {
 	display: block;
 	overflow: hidden;
 	height: 100vh;
-	/* background-image: url('../static/back9.png'); */
+	background-image: url('../static/back.jpg');
 	background-repeat: no-repeat;
-	background-size: 121em;
+	background-size: cover;
 	background-position: center;
 	transform: scale(1) rotateX(0);
 	box-shadow: 0 0 40px rgba(0,0,0,0.2);
@@ -243,7 +238,7 @@ body.nature-on .hero-section {
 	overflow: hidden;
 	height: 100vh;
 	/* background-color: rgba(31,32,41,1); */
-	background-color: #1e1e1e;
+	background-color: #000515;
 	transform: translateX(-100%);
 	-webkit-transition: all 300ms linear;
 	transition: all 300ms linear;
@@ -345,7 +340,7 @@ body.about-on .about-section {
 	overflow: hidden;
 	height: 100vh;
 	/* background-color: rgba(31,32,41,1); */
-	background-color: #1e1e1e;
+	background-color: #000515;
 	transform: translateX(100%);
 	-webkit-transition: all 300ms linear;
 	transition: all 300ms linear;
@@ -416,7 +411,8 @@ body.contact-on .contact-section {
 	display: block;
 	overflow-x: hidden;
 	overflow-y: auto;
-	background-color: rgba(31,32,41,1);
+	/* background-color: rgba(31,32,41,1); */
+	background-color: #000515;
 	-webkit-transition: all 300ms linear;
 	transition: all 300ms linear;
 	z-index: 10;

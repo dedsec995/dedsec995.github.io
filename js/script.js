@@ -51,7 +51,7 @@
 	
 	//Travel portfolio page
 	
-	$(".travel").on('click', function () {
+	$(".status").on('click', function () {
 		$("body").addClass("travel-on");
 	});
 	$(".travel-close").on('click', function () {
@@ -61,7 +61,7 @@
 	
 	//Wildlife portfolio page
 	
-	$(".wildlife").on('click', function () {
+	$(".work_ex").on('click', function () {
 		$("body").addClass("wildlife-on");
 	});
 	$(".wildlife-close").on('click', function () {
@@ -71,7 +71,7 @@
 	
 	//Nature portfolio page
 	
-	$(".nature").on('click', function () {
+	$(".projects").on('click', function () {
 		$("body").addClass("nature-on");
 	});
 	$(".nature-close").on('click', function () {
