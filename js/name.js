@@ -113,6 +113,6 @@
 $(function(){
   $('#slogan').typer({
     search: 'Amit!!!',
-    replace: ['dedsec995', 'a developer','an innovator','creator?', '3rr0R']
+    replace: ['dedsec995', 'a developer','an innovator','a creator?', '3rr0R !']
   })
 })
