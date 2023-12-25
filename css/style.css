@@ -16,7 +16,7 @@ body{
 	font-weight: 300;
 	font-size: 15px;
 	line-height: 1.6;
-	color: #fff;
+	color: #e6e6fa;
 	background-color: #0c0c0c;
 	overflow: hidden;
 	height: 100vh;
@@ -56,7 +56,7 @@ a:hover {
 	transition: all 300ms linear;
 }
 .cursor{
-	background-color: #fff;
+	background-color: #e6e6fa;
 	height: 0;
 	width: 0;
 	z-index: 99999;
@@ -75,7 +75,7 @@ a:hover {
 	border:none
 }
 .cursor2{
-	border: 2px solid #fff;
+	border: 2px solid #e6e6fa;
 }
 .cursor2.hover{
 	background: rgba(255,255,255,1);
@@ -97,7 +97,7 @@ a:hover {
 	display: block;
 	overflow: hidden;
 	height: 100vh;
-	background-image: url('https://i.ibb.co/qkmDZ28/back7.jpg');
+	background-image: url('https://i.ibb.co/93z8dv6/back1.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -110,7 +110,7 @@ a:hover {
 	transform-origin: center top;
 }
 .hero-section h1{
-    color: #fff;
+    color: #e6e6fa;
 	font-size: 5vw;
 	line-height: 1;
 	font-weight: 900;
@@ -133,7 +133,7 @@ a:hover {
 	font-size: 15px;
 	line-height: 20px;
 	font-weight: 500;
-	color: #fff;
+	color: #e6e6fa;
 	letter-spacing: 1px;
 }
 .hero-section p span{
@@ -196,7 +196,7 @@ body.nature-on .hero-section {
 	font-size: 20px;
 	line-height: 20px;
 	font-weight: 700;
-	color: #fff;
+	color: #e6e6fa;
 	letter-spacing: 2px;
 	top: 50%;
 	left: 40px;
@@ -237,7 +237,9 @@ body.nature-on .hero-section {
 	display: block;
 	overflow: hidden;
 	height: 100vh;
-	background-image: url('https://i.ibb.co/VMc1xzP/back6.jpg');
+	background-image: url('https://i.ibb.co/93z8dv6/back1.png');
+	background-repeat: no-repeat;
+	background-size: cover;
 	/* background-color: rgba(31,32,41,1); */
 	background-color: #0c0c0c;
 	transform: translateX(-100%);
@@ -289,7 +291,7 @@ body.about-on .about-section {
 .about-section p span {
     font-family: 'Dancing Script', cursive;
 	letter-spacing: 1px;
-	color: #866BAF;
+	color: #FFBFFF;
 	font-size: 25px;
 	font-weight: 400;
 }
@@ -299,7 +301,7 @@ body.about-on .about-section {
 	font-size: 20px;
 	line-height: 20px;
 	font-weight: 700;
-	color: #fff;
+	color: #e6e6fa;
 	letter-spacing: 2px;
 	top: 50%;
 	right: 40px;
@@ -340,7 +342,9 @@ body.about-on .about-section {
 	display: block;
 	overflow: hidden;
 	height: 100vh;
-	background-image: url('https://i.ibb.co/VMc1xzP/back6.jpg');
+	background-image: url('https://i.ibb.co/93z8dv6/back1.png');
+	background-repeat: no-repeat;
+	background-size: cover;
 	/* background-color: rgba(31,32,41,1); */
 	background-color: #0c0c0c;
 	transform: translateX(100%);
@@ -378,7 +382,7 @@ body.contact-on .contact-section {
 	font-size: 32px;
 	font-weight: 900;
 	letter-spacing: 1px;
-	color: #fff;
+	color: #e6e6fa;
   display: inline-block;
 }
 .contact-section .social a{
@@ -387,7 +391,7 @@ body.contact-on .contact-section {
 	font-size: 15px;
 	font-weight: 600;
 	letter-spacing: 1px;
-	color: #866BAF;
+	color: #FFBFFF;
 }
 @media screen and (max-width: 580px){
 	.contact-section a{
@@ -413,7 +417,7 @@ body.contact-on .contact-section {
 	display: block;
 	overflow-x: hidden;
 	overflow-y: auto;
-	background-image: url('https://i.ibb.co/VMc1xzP/back6.jpg');
+	background-image: url('https://i.ibb.co/93z8dv6/back1.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
@@ -479,7 +483,7 @@ body.nature-on .nature-section {
 	line-height: 1.3;
 	font-weight: 700;
 	letter-spacing: 1px;
-	color: #fff;
+	color: #e6e6fa;
 }
 .travel-section p,
 .wildlife-section p,
@@ -494,7 +498,7 @@ body.nature-on .nature-section {
 	font-size: 20px;
 	line-height: 1.3;
 	font-weight: 700;
-	color: #866BAF;
+	color: #0E1A18;
 }
 /* #Link to page
 ================================================== */
@@ -529,20 +533,21 @@ body.nature-on .nature-section {
 	text-align: right;
 	font-size: 56px;
 	margin-top: 10%;
-	color: #fff;
+	color: #e6e6fa;
   }
 
 #slogan {
 	text-align: left;
 	margin-left: -15px;
+	margin-right: 90px;
 	font-size: 56px;
 	margin-top: 10%;
-	color: #fff;
+	color: #e6e6fa;
   }
   #slogan span { color: #FDDA0D } /* #FDDA0D*/
   #slogan span.selected {
 	background: #09f;
-	color: #fff;
+	color: #e6e6fa;
   }
   
   /* Name Line End */
@@ -632,7 +637,7 @@ body.nature-on .nature-section {
 	padding: 20px;
 	position: absolute;
 	bottom: 0;
-	color: #fff;
+	color: #e6e6fa;
 	transform: translateY(40%);
 	transition: 0.6s 1.6s cubic-bezier(0.215, 0.61, 0.355, 1);
   }
@@ -776,7 +781,7 @@ body.nature-on .nature-section {
 	height: 200px;
 	margin: 5px;
 	cursor: pointer;
-	background-color: #3b3e46;
+	background-color: #353c3b;
 	border-radius: 2px;
 	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.02), inset 0 0px 0px 1px rgba(0, 0, 0, 0.07);
 	transform: translateZ(0);
