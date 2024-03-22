@@ -6,10 +6,25 @@
   <title>Welcome in my world</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
   <link rel="stylesheet" href="./css/style.css" />
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@v0.158.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@v0.158.0/examples/jsm/"
+      }
+    }
+  </script>
+
+  <script type="module" src="avatar.js"></script>
+
 </head>
 
 <body>
   <div class="hero-section">
+    <div id='avatar-container'>
+      <div id='avatar-loading'></div>
+    </div>
     <div class="about-text hover-target">About</div>
     <div class="contact-text hover-target">Let's connect</div>
     <div class="section-center">

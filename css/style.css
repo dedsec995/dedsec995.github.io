@@ -39,6 +39,12 @@ a:hover {
 	background-color: #000;
 }
 
+#avatar-container {
+	height: 240px;
+	/* user-select: none; */
+	/* width: 400px; */
+}
+
 /* #Cursor
 ================================================== */
 
