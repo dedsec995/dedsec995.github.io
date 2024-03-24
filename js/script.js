@@ -1,7 +1,39 @@
-
+import {loadModel} from './avatar.js';
 (function($) { "use strict";
 		
+	// Loading screen JavaScript
+	const stars = 100;
+
+	for (let i = 0; i < stars; i++) {
+		let star = document.createElement("div");
+		star.className = 'stars';
+		var xy = randomPosition();
+		star.style.top = xy[0] + 'px';
+		star.style.left = xy[1] + 'px';
+		document.body.append(star);
+	}
+
+	function randomPosition() {
+		var y = window.innerWidth;
+		var x = window.innerHeight;
+		var randomX = Math.floor(Math.random() * x);
+		var randomY = Math.floor(Math.random() * y);
+		return [randomX, randomY];
+	}
+
+	setTimeout(function () {
+		document.querySelector('.intro').style.display = 'none';
+		document.querySelector('.logo').style.display = 'none';
+		document.querySelector('#scroller').style.display = 'none';
+		document.querySelector('#loading-screen').style.display = 'none';
+		const stars = document.querySelectorAll('.stars');
+        stars.forEach(star => star.remove());
+	}, 6000);
 	
+	setTimeout(function() {
+        loadModel();
+    }, 5500);
+
 	//About page
 	
 	$(".about-text").on('click', function () {

@@ -3,9 +3,9 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 
-window.onload = () => loadModel();
+// window.onload = () => loadModel();
 
-function loadModel() {
+export function loadModel() {
   const loader = new GLTFLoader();
   loader.load('../static/model/mee.glb',
     (gltf) => {
@@ -180,7 +180,7 @@ function setupControls(camera, renderer) {
 function createPedestal() {
   const groundGeometry = new THREE.CylinderGeometry(0.6, 0.6, 0.03, 64);
   const textureLoader = new THREE.TextureLoader();
-  const groundTexture = textureLoader.load('../static/images/pedestal5.jpg');
+  const groundTexture = textureLoader.load('../static/images/pedestal.jpg');
   const groundMaterial = new THREE.MeshStandardMaterial({ map: groundTexture });
   const groundMesh = new THREE.Mesh(groundGeometry, groundMaterial);
   groundMesh.castShadow = false;

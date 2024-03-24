@@ -22,16 +22,24 @@
 </head>
 
 <body>
-  <div id="mobileMessage">
-    <p>This website is not optimized for mobile. For the best experience, please view it on a desktop.</p>
+  <!-- Loading screen code -->
+  <div id="loading-screen">
+    <section class="intro">
+      A long time ago, in a galaxy far,<br> far away....
+    </section>
+    <section class="logo">
+      <img src="static/images/amit.png" alt="DevDrawer Star Wars Scroll Screen Mockup">
+    </section>
+    <div id="scroller">
+      <div id="content">
+        <p id="title">Please Wait, Loading</p>
+        <p id="subtitle">May the Force Be With You</p>
+        <br>
+        <p>The DevDrawer was inspired to create something for nerds and geeks alike but unfortunately he missed his own deadline to create something for the day in honor of Star Wars. This episode is to help fix that. So, let's get started.</p>
+      </div>
+    </div>
   </div>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      if (window.innerWidth < 768) {
-        document.getElementById('mobileMessage').style.display = 'block';
-      }
-    });
-  </script>
+
   <div class="hero-section">
     <div id='avatar-container'>
       <div id='avatar-loading'></div>
@@ -456,7 +464,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.min.js"></script>
-  <script src="./js/script.js"></script>
+  <script type="module" src="./js/script.js"></script>
   <script src="./js/name.js"></script>
   <script src="./js/work_experience.js"></script>
   <script src="./js/projects.js"></script>
