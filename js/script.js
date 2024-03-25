@@ -28,11 +28,11 @@ import {loadModel} from './avatar.js';
 		document.querySelector('#loading-screen').style.display = 'none';
 		const stars = document.querySelectorAll('.stars');
         stars.forEach(star => star.remove());
-	}, 6000);
+	}, 7800);
 	
 	setTimeout(function() {
         loadModel();
-    }, 5500);
+    }, 7300);
 
 	//About page
 	

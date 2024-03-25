@@ -125,7 +125,7 @@ a:hover {
 }
 
 p {
-	color: #ffe81f;
+	color: #FFE81F;
 }
 
 #scroller {
@@ -174,7 +174,7 @@ p {
 #title,
 #subtitle {
 	text-align: center;
-	line-height: 1.5rem;
+	line-height: 2.5rem;
 }
 
 #subtitle {
@@ -377,11 +377,15 @@ body.about-on .about-section {
 	margin: 0 auto;
 	box-shadow: 0 0 20px rgba(0,0,0,0.15);
 }
+.about-section p {
+	font-size: 20px;
+	font-weight: 800;	
+}
 .about-section p span {
     font-family: 'Dancing Script', cursive;
 	letter-spacing: 1px;
 	color: #FFBFFF;
-	font-size: 25px;
+	font-size: 35px;
 	font-weight: 400;
 }
 
@@ -470,14 +474,14 @@ body.contact-on .contact-section {
 	font-size: 32px;
 	font-weight: 900;
 	letter-spacing: 1px;
-	color: #e6e6fa;
+	color: #FFE81F;
   display: inline-block;
 }
 
 .contact-section a i {
     font-size: 36px;
     margin-right: 10px;
-    color: #e6e6fa;
+    color: 		#2e557c;
 }
 
 .contact-section .social a{
@@ -594,7 +598,7 @@ body.projects-on .projects-section {
 	font-size: 20px;
 	line-height: 1.3;
 	font-weight: 700;
-	color: #FFBFFF;
+	color: #FFE81F;
 }
 /* #Link to page
 ================================================== */
@@ -655,6 +659,7 @@ body.projects-on .projects-section {
 	font-weight: 700;
 	color: #5D4037;
 	text-align: center;
+
   }
   
   p {
