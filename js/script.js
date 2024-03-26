@@ -1,6 +1,7 @@
-import {loadModel} from './avatar.js';
-(function($) { "use strict";
-		
+import { loadModel } from './avatar.js';
+(function ($) {
+	"use strict";
+
 	// Loading screen JavaScript
 	const stars = 100;
 
@@ -27,15 +28,15 @@ import {loadModel} from './avatar.js';
 		document.querySelector('#scroller').style.display = 'none';
 		document.querySelector('#loading-screen').style.display = 'none';
 		const stars = document.querySelectorAll('.stars');
-        stars.forEach(star => star.remove());
+		stars.forEach(star => star.remove());
 	}, 7800);
-	
-	setTimeout(function() {
-        loadModel();
-    }, 7300);
+
+	setTimeout(function () {
+		loadModel();
+	}, 7000);
 
 	//About page
-	
+
 	$(".about-text").on('click', function () {
 		$("body").addClass("about-on");
 	});
@@ -43,9 +44,9 @@ import {loadModel} from './avatar.js';
 		$("body").removeClass("about-on");
 	});
 
-	
+
 	//Contact page
-	
+
 	$(".contact-text").on('click', function () {
 		$("body").addClass("contact-on");
 	});
@@ -53,9 +54,9 @@ import {loadModel} from './avatar.js';
 		$("body").removeClass("contact-on");
 	});
 
-	
+
 	//status portfolio page
-	
+
 	$(".status").on('click', function () {
 		$("body").addClass("status-on");
 	});
@@ -63,9 +64,9 @@ import {loadModel} from './avatar.js';
 		$("body").removeClass("status-on");
 	});
 
-	
+
 	//workexperience portfolio page
-	
+
 	$(".work_ex").on('click', function () {
 		$("body").addClass("workexperience-on");
 	});
@@ -73,9 +74,9 @@ import {loadModel} from './avatar.js';
 		$("body").removeClass("workexperience-on");
 	});
 
-	
+
 	//projects portfolio page
-	
+
 	$(".projects").on('click', function () {
 		$("body").addClass("projects-on");
 	});
@@ -83,5 +84,5 @@ import {loadModel} from './avatar.js';
 		$("body").removeClass("projects-on");
 	});
 
-	
+
 })(jQuery);

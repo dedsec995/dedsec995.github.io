@@ -359,7 +359,7 @@ function switchAvatarAnimation(changeAnimation, danceAction, backflipAcition, pu
 }
 
 // Animate other things
-function animate_wraper(avatar,mixer, renderer, scene, camera, starGeometry, neurons, connections) {
+function animate_wraper(avatar, mixer, renderer, scene, camera, starGeometry, neurons, connections) {
   const clock = new THREE.Clock();
   let colorUpdateCounter = 0;
   const colorUpdateDelay = 10;
@@ -370,9 +370,9 @@ function animate_wraper(avatar,mixer, renderer, scene, camera, starGeometry, neu
     requestAnimationFrame(animate);
     mixer.update(clock.getDelta());
 
-    [angle,speed] = camera_rotation_animation(avatar,camera,radius,angle,speed);
+    [angle, speed] = camera_rotation_animation(avatar, camera, radius, angle, speed);
     stars_animation(starGeometry);
-    colorUpdateCounter = nn_animation(neurons,connections,colorUpdateCounter,colorUpdateDelay);
+    colorUpdateCounter = nn_animation(neurons, connections, colorUpdateCounter, colorUpdateDelay);
 
     // controls.update();
     renderer.render(scene, camera);
@@ -411,7 +411,7 @@ function avatarAnimations(avatar, gltf, container, camera) {
   return mixer;
 }
 
-function nn_animation(neurons,connections,colorUpdateCounter,colorUpdateDelay){
+function nn_animation(neurons, connections, colorUpdateCounter, colorUpdateDelay) {
   // Neuron Animation
   neurons.forEach(neuron => {
     // Update color less frequently
@@ -434,7 +434,7 @@ function nn_animation(neurons,connections,colorUpdateCounter,colorUpdateDelay){
   return colorUpdateCounter;
 }
 
-function stars_animation(starGeometry){
+function stars_animation(starGeometry) {
   // Move stars over time
   const positions = starGeometry.attributes.position.array;
 
@@ -451,14 +451,14 @@ function stars_animation(starGeometry){
   starGeometry.attributes.position.needsUpdate = true;
 }
 
-function camera_rotation_animation(avatar,camera,radius,angle,speed){
+function camera_rotation_animation(avatar, camera, radius, angle, speed) {
   // Rotate camera around the avatar
   camera.position.x = radius * Math.sin(angle);
   camera.position.z = radius * Math.cos(angle);
-  camera.lookAt(avatar.position.x,avatar.position.y + 0.8, avatar.position.z); // Keep the camera looking at the avatar
+  camera.lookAt(avatar.position.x, avatar.position.y + 0.8, avatar.position.z); // Keep the camera looking at the avatar
   angle += speed;
-  if (angle + 0.3 >= (Math.PI * 2 )) {  
+  if (angle + 0.3 >= (Math.PI * 2)) {
     speed = 0.001;
   }
-  return [angle,speed];
+  return [angle, speed];
 }
