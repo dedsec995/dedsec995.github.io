@@ -689,6 +689,8 @@ body.projects-on .projects-section {
 	opacity: 1;
   }
   .card-wrap:hover .card-info, .card-wrap:hover .card-info p {
+	font-weight: bold;
+	color: #FFE81F;
 	transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   }
   .card-wrap:hover .card-info:after {
@@ -699,6 +701,8 @@ body.projects-on .projects-section {
   .card-wrap:hover .card-bg {
 	transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 5s cubic-bezier(0.23, 1, 0.32, 1);
 	opacity: 0.8;
+	filter: blur(15px);
+	background-color: rgba(0, 0, 0, 0.9);
   }
   .card-wrap:hover .card {
 	transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 2s cubic-bezier(0.23, 1, 0.32, 1);
@@ -769,6 +773,7 @@ body.projects-on .projects-section {
 	font-size: 36px;
 	font-weight: 700;
 	text-shadow: rgba(0, 0, 0, 0.5) 0 10px 10px;
+	color: #FFFDD0;
   }
 
   /* Work Experience END*/
