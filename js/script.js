@@ -2,7 +2,7 @@ import { loadModel } from './avatar.js';
 (function ($) {
 	"use strict";
 
-	// Loading screen JavaScript
+	// -------------------------------Loading screen-----------------------------
 	const stars = 100;
 
 	for (let i = 0; i < stars; i++) {
@@ -34,6 +34,8 @@ import { loadModel } from './avatar.js';
 	setTimeout(function () {
 		loadModel();
 	}, 7000);
+
+	// ------------------------------Loading Scr33n-----------------------
 
 	//About page
 
@@ -83,6 +85,18 @@ import { loadModel } from './avatar.js';
 	$(".projects-close").on('click', function () {
 		$("body").removeClass("projects-on");
 	});
+
+
+    // Popup
+    document.addEventListener('DOMContentLoaded', function () {
+		const materialPopup = document.getElementById('material-popup');
+		// Show the popup
+		materialPopup.classList.add('show');
+		// Hide the popup after 8 seconds
+		setTimeout(function () {
+		  materialPopup.classList.remove('show');
+		}, 13000);
+	  });
 
 
 })(jQuery);
