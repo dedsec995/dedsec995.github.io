@@ -29,11 +29,11 @@ import { loadModel } from './avatar.js';
 		document.querySelector('#loading-screen').style.display = 'none';
 		const stars = document.querySelectorAll('.stars');
 		stars.forEach(star => star.remove());
-	}, 7800);
+	}, 1);
 
 	setTimeout(function () {
 		loadModel();
-	}, 7000);
+	}, 1);
 
 	// ------------------------------Loading Scr33n-----------------------
 

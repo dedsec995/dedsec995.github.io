@@ -32,7 +32,7 @@ function setupScene(gltf) {
     const scene = new THREE.Scene(); // setupScene
 
     const [neurons, connections] = createNNVisualizer(scene);
-    const [avatar, neck, waist] = createAvatar(gltf);
+    const [avatar] = createAvatar(gltf);
     const pedestal = createPedestal();
     const [stars, starGeometry] = createStarryBackground();
 
@@ -43,7 +43,6 @@ function setupScene(gltf) {
     scene.add(stars);
 
     const mixer = avatarAnimations(avatar, gltf, container, camera);
-    // setupMouseReactive(neck, waist);
     animate_wraper(avatar, mixer, renderer, scene, camera, starGeometry, neurons, connections);
 
   } catch (error) {
@@ -51,65 +50,6 @@ function setupScene(gltf) {
   }
 }
 
-function getMousePos(e) {
-  return { x: e.clientX, y: e.clientY };
-}
-
-function degToRad(degrees) {
-  var pi = Math.PI;
-  return degrees * (pi / 180);
-}
-
-function moveJoint(mouse, joint, degreeLimit) {
-  let degrees = getMouseDegrees(mouse.x, mouse.y + 60, degreeLimit);
-  // console.log(degToRad(degrees.x))
-  joint.rotation.y = degToRad(degrees.x);
-  joint.rotation.x = degToRad(degrees.y);
-}
-
-function getMouseDegrees(x, y, degreeLimit) {
-  let dx = 0,
-    dy = 0,
-    xdiff,
-    xPercentage,
-    ydiff,
-    yPercentage;
-
-  let w = { x: window.innerWidth, y: window.innerHeight };
-
-  // Left (Rotates neck left between 0 and -degreeLimit)
-
-  // 1. If cursor is in the left half of screen
-  if (x <= w.x / 2) {
-    // 2. Get the difference between middle of screen and cursor position
-    xdiff = w.x / 2 - x;
-    // 3. Find the percentage of that difference (percentage toward edge of screen)
-    xPercentage = (xdiff / (w.x / 2)) * 100;
-    // 4. Convert that to a percentage of the maximum rotation we allow for the neck
-    dx = ((degreeLimit * xPercentage) / 100) * -1;
-  }
-  // Right (Rotates neck right between 0 and degreeLimit)
-  if (x >= w.x / 2) {
-    xdiff = x - w.x / 2;
-    xPercentage = (xdiff / (w.x / 2)) * 100;
-    dx = (degreeLimit * xPercentage) / 100;
-  }
-  // Up (Rotates neck up between 0 and -degreeLimit)
-  if (y <= w.y / 2) {
-    ydiff = w.y / 2 - y;
-    yPercentage = (ydiff / (w.y / 2)) * 100;
-    // Note that I cut degreeLimit in half when she looks up
-    dy = ((((degreeLimit * 0.5) * yPercentage) / 100) * -1) / 10;
-  }
-
-  // Down (Rotates neck down between 0 and degreeLimit)
-  if (y >= w.y / 2) {
-    ydiff = y - w.y / 2;
-    yPercentage = (ydiff / (w.y / 2)) * 100;
-    dy = (((degreeLimit * yPercentage) / 100)) * 1.7;
-  }
-  return { x: dx, y: dy };
-}
 
 // Renderer
 function setupRenderer() {
@@ -223,22 +163,7 @@ function createAvatar(gltf) {
       child.receiveShadow = true;
     }
   });
-  let neck;
-  let waist;
-  avatar.traverse(o => {
-    if (o.isBone) {
-      // console.log(o.name);
-      if (o.name === 'Neck') {
-        neck = o;
-        // console.log("Found neck" + o);
-      }
-      if (o.name === 'Spine') {
-        // console.log("Found neck" + o);
-        waist = o;
-      }
-    }
-  });
-  return [avatar, neck, waist];
+  return [avatar];
 }
 
 // Create FFNN visualization
@@ -276,18 +201,6 @@ function createNNVisualizer(scene) {
     }
   }
   return [neurons, connections];
-}
-
-// Make Avatar Responed to Mouse
-function setupMouseReactive(neck, waist) {
-  document.addEventListener('mousemove', function (e) {
-    var mousecoords = getMousePos(e);
-    // console.log(mousecoords);
-    if (neck && waist) {
-      moveJoint(mousecoords, neck, 50);
-      moveJoint(mousecoords, waist, 25);
-    }
-  });
 }
 
 // Give Animations List and Actions
@@ -443,9 +356,9 @@ function stars_animation(starGeometry) {
     positions[i + 1] += (Math.random() - 0.5) * 0.1;  // y
     positions[i + 2] += 0.1;  // z
 
-    // if (positions[i + 2] > 0) {
-    //   positions[i + 2] = -2000;  // Reset z position
-    // }
+    if (positions[i + 2] > 0) {
+      positions[i + 2] = -2000;  // Reset z position
+    }
   }
 
   starGeometry.attributes.position.needsUpdate = true;
