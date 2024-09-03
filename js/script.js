@@ -29,11 +29,11 @@ import { loadModel } from './avatar.js';
 		document.querySelector('#loading-screen').style.display = 'none';
 		const stars = document.querySelectorAll('.stars');
 		stars.forEach(star => star.remove());
-	}, 7800);
+	}, 1);
 
 	setTimeout(function () {
 		loadModel();
-	}, 7000);
+	}, 1);
 
 	// ------------------------------Loading Scr33n-----------------------
 
@@ -96,6 +96,17 @@ import { loadModel } from './avatar.js';
 		setTimeout(function () {
 		  materialPopup.classList.remove('show');
 		}, 13000);
+
+		// Add event listener to "Whats Next?" card
+		const whatsNextCard = document.getElementById('whats-next-card');
+		whatsNextCard.addEventListener('click', function () {
+		  // Close workexperience-section
+		  $("body").removeClass("workexperience-on");
+	  
+		  // Open contact-section
+		  $("body").addClass("contact-on");
+		});
+
 	  });
 
 

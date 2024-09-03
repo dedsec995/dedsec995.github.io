@@ -660,7 +660,8 @@ body.projects-on .projects-section {
 
 .status-section h3,
 .workexperience-section h3,
-.projects-section h3 {
+.projects-section h3,
+.contact-section h3 {
 	font-size: 44px;
 	line-height: 1.3;
 	font-weight: 700;
@@ -670,7 +671,8 @@ body.projects-on .projects-section {
 
 .status-section p,
 .workexperience-section p,
-.projects-section p {
+.projects-section p,
+.contact-section p {
 	font-size: 14px;
 	line-height: 1.7;
 	letter-spacing: 1px;
@@ -678,7 +680,8 @@ body.projects-on .projects-section {
 
 .status-section p span,
 .workexperience-section p span,
-.projects-section p span {
+.projects-section p span,
+.contact-section p span {
 	font-size: 20px;
 	line-height: 1.3;
 	font-weight: 700;
