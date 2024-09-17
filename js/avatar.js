@@ -1,9 +1,15 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-
+import { ParametricGeometry } from 'three/examples/jsm/geometries/ParametricGeometry.js';
 
 // window.onload = () => loadModel();
+
+// SGD parameters
+const learningRate = 0.1;
+const boundary = 1.0; // Define a boundary for the surface
+let point = new THREE.Vector3(Math.random() * 2 - 1, 0, Math.random() * 2 - 1);
+const path = [point.clone()];
 
 export function loadModel() {
   const loader = new GLTFLoader();
@@ -35,15 +41,18 @@ function setupScene(gltf) {
     const [avatar] = createAvatar(gltf);
     const pedestal = createPedestal();
     const [stars, starGeometry] = createStarryBackground();
-
+    const saddlebackGeo = createSaddlebackGeo();
+    const [theSGDPath, theSGDGeo] = createTheSGDPath();
     setupLighting(scene); // Lighting
     // scene.add(axesHelper);
     scene.add(avatar);
     scene.add(pedestal);
     scene.add(stars);
+    scene.add(saddlebackGeo);
+    scene.add(theSGDPath);
 
     const mixer = avatarAnimations(avatar, gltf, container, camera);
-    animate_wraper(avatar, mixer, renderer, scene, camera, starGeometry, neurons, connections);
+    animate_wraper(avatar, mixer, renderer, scene, camera, starGeometry, neurons, connections, theSGDGeo);
 
   } catch (error) {
     console.log(error)
@@ -89,11 +98,34 @@ function setupLighting(scene) {
   spotlight.castShadow = true;
   scene.add(spotlight);
 
-
   const keyLight = new THREE.DirectionalLight(0xffffff, 3);
   keyLight.position.set(0, 0, 6);
   keyLight.lookAt(new THREE.Vector3());
   scene.add(keyLight);
+
+}
+
+function createSaddlebackGeo() {
+    // Create the saddleback geometry
+  const geometry = new ParametricGeometry(saddlebackGeometry, 100, 100);
+  // Create a material and mesh
+  const material = new THREE.MeshBasicMaterial({ color: 0xCDDDE8, wireframe: true });
+  const mesh = new THREE.Mesh(geometry, material);
+  mesh.position.set(-3.5, 1.5, -1);
+  mesh.scale.set(0.6, 0.6, 0.6);
+  mesh.rotateY(45);
+  return mesh;
+}
+
+function createTheSGDPath(){
+  const pathPoints = [];
+  const pathGeometry = new THREE.BufferGeometry().setFromPoints(pathPoints);
+  const pathMaterial = new THREE.LineBasicMaterial({ color: 0xff0000 });
+  const pathLine = new THREE.Line(pathGeometry, pathMaterial);
+  pathLine.position.set(-3.5, 1.5, -1);
+  pathLine.scale.set(0.3, 0.3, 0.3);
+  pathLine.rotateY(45);
+  return [pathLine, pathGeometry];
 }
 
 // Axes helper
@@ -272,13 +304,17 @@ function switchAvatarAnimation(changeAnimation, danceAction, backflipAcition, pu
 }
 
 // Animate other things
-function animate_wraper(avatar, mixer, renderer, scene, camera, starGeometry, neurons, connections) {
+function animate_wraper(avatar, mixer, renderer, scene, camera, starGeometry, neurons, connections, theSGDGeo) {
   const clock = new THREE.Clock();
   let colorUpdateCounter = 0;
   const colorUpdateDelay = 10;
   let angle = 0;
   const radius = 2.9; // Radius of the circular path
   let speed = 0.07; // Speed of avatar rotation
+  let sgdUpdateCounter = 0;
+  let sgdUpdateDelay = 10;
+
+  
   function animate() {
     requestAnimationFrame(animate);
     mixer.update(clock.getDelta());
@@ -286,6 +322,11 @@ function animate_wraper(avatar, mixer, renderer, scene, camera, starGeometry, ne
     [angle, speed] = camera_rotation_animation(avatar, camera, radius, angle, speed);
     stars_animation(starGeometry);
     colorUpdateCounter = nn_animation(neurons, connections, colorUpdateCounter, colorUpdateDelay);
+
+    // Perform SGD step
+    sgdStep();
+
+    sgdUpdateCounter = updateSGDPath(theSGDGeo,sgdUpdateCounter,sgdUpdateDelay);
 
     // controls.update();
     renderer.render(scene, camera);
@@ -374,4 +415,57 @@ function camera_rotation_animation(avatar, camera, radius, angle, speed) {
     speed = 0.001;
   }
   return [angle, speed];
+}
+
+// SGD function
+function sgdStep() {
+    // Compute gradient based on the current x and z values
+    const gradient = computeGradient(point.x, point.z);
+    
+    // Update x and z using the gradient (SGD step)
+    point.x -= learningRate * gradient.x;
+    point.z -= learningRate * gradient.y;
+
+    // Project the point back onto the flattened surface
+    point = projectToSurface(point.x, point.z);
+
+    // Check if the point is within the boundary
+    if (Math.abs(point.x) > boundary || Math.abs(point.z) > boundary) {
+        // Reset to a new random point within bounds if it goes outside the boundary
+        point = new THREE.Vector3(Math.random() * 2 - 1, 0, Math.random() * 2 - 1);
+        path.length = 0; // Clear the path
+    }
+
+    // Add the new projected point to the path
+    path.push(point.clone());
+}
+
+
+// Saddleback geometry function
+function saddlebackGeometry(u, v, target) {
+    const x = u * 2 - 1;
+    const z = v * 2 - 1;
+    const y = (x * x - z * z) * 0.7;
+    target.set(x, y, z);
+}
+
+
+// Saddleback surface projection function
+function projectToSurface(x, z) {
+    const y = (x * x - z * z) * 0.7;
+    return new THREE.Vector3(x, y, z);
+}
+
+// Function to compute gradient of saddleback function
+function computeGradient(x, z) {
+    return new THREE.Vector2(2 * x, -2 * z);
+}
+
+function updateSGDPath(theSGDGeo, sgdUpdateCounter, sgdUpdateDelay) {
+  if (sgdUpdateCounter % sgdUpdateDelay === 0) {
+    // Update path
+    theSGDGeo.setFromPoints(path);
+  }
+  sgdUpdateCounter++;
+  return sgdUpdateCounter;
 }
