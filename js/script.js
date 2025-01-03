@@ -37,6 +37,22 @@ import { loadModel } from './avatar.js';
 
 	// ------------------------------Loading Scr33n-----------------------
 
+	// Add touch event listeners for mobile
+	$(".about-text, .contact-text, .status, .work_ex, .projects").on('touchstart', function(e) {
+	e.preventDefault();
+	$(this).trigger('click');
+	});
+
+	// Prevent scrolling on the main page when a section is open
+	$("body").on('touchmove', function(e) {
+	if ($("body").hasClass("about-on") || $("body").hasClass("contact-on") || 
+		$("body").hasClass("status-on") || $("body").hasClass("workexperience-on") || 
+		$("body").hasClass("projects-on")) {
+		e.preventDefault();
+	}
+	});
+
+
 	//About page
 
 	$(".about-text").on('click', function () {
