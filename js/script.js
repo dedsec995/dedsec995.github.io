@@ -29,7 +29,7 @@ import { loadModel } from './avatar.js';
 		document.querySelector('#loading-screen').style.display = 'none';
 		const stars = document.querySelectorAll('.stars');
 		stars.forEach(star => star.remove());
-	}, 4300);
+	}, 10);
 
 	setTimeout(function () {
 		loadModel();

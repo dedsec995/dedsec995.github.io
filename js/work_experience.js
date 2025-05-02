@@ -32,33 +32,30 @@ Vue.component('card', {
     mousePX() {
       return this.mouseX / this.width;
     },
-    mousePY() {
-      return this.mouseY / this.height;
-    },
     cardStyle() {
       const rX = this.mousePX * 30;
-      const rY = this.mousePY * -30;
       return {
-        transform: `rotateY(${rX}deg) rotateX(${rY}deg)` };
+        transform: `rotateY(${rX}deg)`
+      };
 
     },
     cardBgTransform() {
       const tX = this.mousePX * -40;
-      const tY = this.mousePY * -40;
       return {
-        transform: `translateX(${tX}px) translateY(${tY}px)` };
+        transform: `translateX(${tX}px)`
+      };
 
     },
     cardBgImage() {
       return {
-        backgroundImage: `url(${this.dataImage})` };
-
-    } },
+        backgroundImage: `url(${this.dataImage})`
+      };
+    }
+  },
 
   methods: {
     handleMouseMove(e) {
       this.mouseX = e.pageX - this.$refs.card.offsetLeft - this.width / 2;
-      this.mouseY = e.pageY - this.$refs.card.offsetTop - this.height / 2;
     },
     handleMouseEnter() {
       clearTimeout(this.mouseLeaveDelay);
