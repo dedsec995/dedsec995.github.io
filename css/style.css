@@ -772,7 +772,7 @@ body.projects-on .projects-section {
 
 #outslogan {
 	text-align: right;
-	font-size: 56px;
+	font-size: clamp(1.5rem, 4.5vw, 3.5rem);
 	margin-top: 10%;
 	color: #e6e6fa;
 }
@@ -781,7 +781,7 @@ body.projects-on .projects-section {
 	text-align: left;
 	margin-left: -15px;
 	margin-right: 90px;
-	font-size: 56px;
+	font-size: clamp(1.5rem, 4.5vw, 3.5rem);
 	margin-top: 10%;
 	color: #e6e6fa;
 }
